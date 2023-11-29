@@ -4,16 +4,21 @@ export default async (req, context) => {
 
     const array = ["https://i.imgur.com/cBvNSlJ.png", "https://i.imgur.com/5heLkG7.png"];
     const randomElement = array[Math.floor(Math.random() * array.length)];
-    return fetch(randomElement, {
-      headers: {
-        "Cache-Control":"no-store"
-      }
-    }).then(function(response){
-      console.log(response)
-      console.log(response.headers.get("cache-control"))
-      return response
-    });
+    // Fetch the image
+    const response = await fetch(randomElement);
 
+    // Get the image data as a buffer
+    const imageBuffer = await response.buffer();
+
+    return {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "image/png", // Adjust the content type based on your image format
+        "Cache-Control": "no-store, must-revalidate"
+      },
+      body: imageBuffer.toString("base64"),
+      isBase64Encoded: true
+    };
   };
 
   export const config = {
