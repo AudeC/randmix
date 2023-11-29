@@ -13,15 +13,17 @@ export default async (req, context) => {
     // Convert the ArrayBuffer to a Buffer
     const imageBuffer = Buffer.from(imageArrayBuffer);
 
-    return {
+    return new Response(
+      imageBuffer.toString("base64"), {
       statusCode: 200,
       headers: {
         "Content-Type": "image/png", // Adjust the content type based on your image format
         "Cache-Control": "no-store, must-revalidate"
       },
-      body: imageBuffer.toString("base64"),
       isBase64Encoded: true
-    };
+    }
+    );
+
   };
 
   export const config = {
