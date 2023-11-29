@@ -7,8 +7,11 @@ export default async (req, context) => {
     // Fetch the image
     const response = await fetch(randomElement);
 
-    // Get the image data as a buffer
-    const imageBuffer = await response.buffer();
+    // Get the image data as an ArrayBuffer
+    const imageArrayBuffer = await response.arrayBuffer();
+
+    // Convert the ArrayBuffer to a Buffer
+    const imageBuffer = Buffer.from(imageArrayBuffer);
 
     return {
       statusCode: 200,
