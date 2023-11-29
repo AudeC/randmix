@@ -4,9 +4,7 @@ export default async (req, context) => {
 
     const array = ["https://i.imgur.com/cBvNSlJ.png", "https://i.imgur.com/5heLkG7.png"];
     const randomElement = array[Math.floor(Math.random() * array.length)];
-    return fetch(randomElement).then(function(response){
-        return response.blob();
-    })
+    return fetch(randomElement)
 
   };
 
