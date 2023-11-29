@@ -4,7 +4,11 @@ export default async (req, context) => {
 
     const array = ["https://i.imgur.com/cBvNSlJ.png", "https://i.imgur.com/5heLkG7.png"];
     const randomElement = array[Math.floor(Math.random() * array.length)];
-    return fetch(randomElement)
+    return fetch(randomElement, {
+      headers: {
+        "Cache-Control":"no-store"
+      }
+    })
 
   };
 
