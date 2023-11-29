@@ -26,5 +26,5 @@ export default async (req, context) => {
   };
 
   export const config = {
-    path: "/img/:user/:dossier/"
+    path: ["/img/:user/:dossier", "/img/:key/img.png", "/img/test.png"]
   };
