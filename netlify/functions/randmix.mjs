@@ -10,6 +10,7 @@ export default async (req, context) => {
       }
     }).then(function(response){
       console.log(response)
+      console.log(response.headers.get("cache-control"))
       return response
     });
 
