@@ -8,7 +8,7 @@ export default async (req, context) => {
     const response = await fetch(randomElement);
 
     // Get the image data as an ArrayBuffer
-    const imageArrayBuffer = await response.arrayBuffer();
+    const imageArrayBuffer = await response.arrayBuffer().toString("base64");
 
     // Convert the ArrayBuffer to a Buffer
     const imageBuffer = Buffer.from(imageArrayBuffer);
