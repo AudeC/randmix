@@ -8,20 +8,19 @@ export default async (req, context) => {
     const response = await fetch(randomElement);
 
     // Get the image data as an ArrayBuffer
-    const imageArrayBuffer = await response.arrayBuffer().toString("base64");
+    const imageArrayBuffer = await response.arrayBuffer();
 
     // Convert the ArrayBuffer to a Buffer
     const imageBuffer = Buffer.from(imageArrayBuffer);
 
     return new Response(
-      imageBuffer.toString("base64"), {
+      imageBuffer, {
       statusCode: 200,
       headers: {
         "Content-Type": "image/png", // Adjust the content type based on your image format
         "Cache-Control": "no-store, must-revalidate"
-      },
-      isBase64Encoded: true
-    }
+        },
+      }
     );
 
   };
