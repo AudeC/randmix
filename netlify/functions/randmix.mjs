@@ -8,7 +8,10 @@ export default async (req, context) => {
       headers: {
         "Cache-Control":"no-store"
       }
-    })
+    }).then(function(response){
+      console.log(response)
+      return response
+    });
 
   };
 
