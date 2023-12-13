@@ -1,16 +1,15 @@
-// Grab our credentials from a .env file or environment variables
-require('dotenv').config();
+
 const {
     DATABASE_URL,
     SUPABASE_SERVICE_API_KEY
 } = process.env;
 
 // Connect to our database
-const { createClient } = require('@supabase/supabase-js');
+import { createClient } from '@supabase/supabase-js';
 const supabase = createClient(DATABASE_URL, SUPABASE_SERVICE_API_KEY);
 
 // Our standard serverless handler function
-exports.handler = async event => {
+export default async (req, context) => {
 
     let id = "1";
     let { data: notes, error } = await supabase
@@ -22,3 +21,8 @@ exports.handler = async event => {
   console.log(data, error);
 
 }
+
+
+export const config = {
+    path: "/randsupa/:user:folder"
+  };
