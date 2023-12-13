@@ -18,7 +18,7 @@ export default async (req, context) => {
         .eq('author', id)
 
   // Did it work?
-  console.log(data, error);
+  console.log(data);
 
 }
 
