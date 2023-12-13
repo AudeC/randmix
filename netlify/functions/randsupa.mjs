@@ -15,7 +15,7 @@ export default async (req, context) => {
     let { data } = await supabase
         .from('folders')
         .select('content')
-        .eq('author', id)
+        .eq('id', id)
 
   // Did it work?
   console.log(data);
