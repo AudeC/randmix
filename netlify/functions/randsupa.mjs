@@ -24,5 +24,5 @@ export default async (req, context) => {
 
 
 export const config = {
-    path: "/randsupa/:user:folder"
+    path: "/randsupa/:user/:folder"
   };

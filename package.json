@@ -1,0 +1,22 @@
+{
+  "name": "randmix",
+  "version": "1.0.0",
+  "description": "projet randmix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AudeC/randmix.git"
+  },
+  "author": "eelis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AudeC/randmix/issues"
+  },
+  "homepage": "https://github.com/AudeC/randmix#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}
