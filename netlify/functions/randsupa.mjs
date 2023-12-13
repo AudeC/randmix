@@ -12,7 +12,7 @@ const supabase = createClient(DATABASE_URL, SUPABASE_SERVICE_API_KEY);
 export default async (req, context) => {
 
     let id = "1";
-    let { data: notes, error } = await supabase
+    let { data } = await supabase
         .from('folders')
         .select('content')
         .eq('author', id)
